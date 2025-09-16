@@ -4,6 +4,8 @@ import './ChatWindow.css';
 import { MyContext } from './MyContext.jsx';
 import { ScaleLoader } from "react-spinners";
 import { useNavigate } from 'react-router-dom';
+import server from './server.jsx';
+
 
 export default function ChatWindow() {
   const { prompt, setPrompt, reply, setReply, currThreadId, prevChats, setPrevChats, setNewChat, theme, setTheme } = useContext(MyContext);
@@ -18,7 +20,7 @@ export default function ChatWindow() {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5050/api/chat", {
+      const res = await fetch(`${server}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +70,7 @@ export default function ChatWindow() {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5050/api/delete", {
+      const res = await fetch(`${server}/api/delete`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });

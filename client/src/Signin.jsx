@@ -9,6 +9,7 @@ import {
   Paper,
   Divider,
 } from "@mui/material";
+import server from './server.jsx';
 
 
 export default function Signin() {
@@ -21,7 +22,7 @@ export default function Signin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5050/api/signin", {
+      const res = await fetch(`${server}/api/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

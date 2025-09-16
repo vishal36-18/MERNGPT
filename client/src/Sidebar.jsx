@@ -3,6 +3,7 @@ import './Sidebar.css';
 import { MyContext } from './MyContext.jsx';
 import { v1 as uuidv1 } from "uuid";
 import { jwtDecode } from "jwt-decode";
+import server from './server.jsx';
 
 export default function Sidebar() {
   const { allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats } = useContext(MyContext);
@@ -21,7 +22,7 @@ export default function Sidebar() {
 
   const getAllThreads = async () => {
     try {
-      const res = await fetch("http://localhost:5050/api/thread", {
+      const res = await fetch(`${server}/api/thread`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -44,7 +45,7 @@ export default function Sidebar() {
   const changeThread = async (newThreadId) => {
     setCurrThreadId(newThreadId);
     try {
-      const res = await fetch(`http://localhost:5050/api/thread/${newThreadId}`, {
+      const res = await fetch(`${server}/api/thread/${newThreadId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -56,7 +57,7 @@ export default function Sidebar() {
 
   const deleteThread = async (threadId) => {
     try {
-      await fetch(`http://localhost:5050/api/thread/${threadId}`, {
+      await fetch(`${server}/api/thread/${threadId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });
