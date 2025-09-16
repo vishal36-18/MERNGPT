@@ -1,0 +1,48 @@
+:root {
+  /* Default = Dark theme */
+  --bg-main: #212121;
+  --bg-secondary: #323232;
+  --bg-sidebar: #171717;
+  --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-user-msg: #323232;
+  --bg-assistant-msg: transparent;
+
+  --text-main: #ececee;
+  --text-secondary: #b4b4b4;
+
+  --accent: #339cff;
+  --scrollbar-thumb: #323232;
+  --scrollbar-track: #212121;
+}
+
+.light-theme {
+  --bg-main: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-sidebar: #f1f1f1;
+  --bg-input: rgba(0, 0, 0, 0.05);
+  --bg-user-msg: #e5e5e5;
+  --bg-assistant-msg: transparent;
+
+  --text-main: #212121;
+  --text-secondary: #555;
+
+  --accent: rgb(214, 204, 204);
+  --scrollbar-thumb: #ccc;
+  --scrollbar-track: #f1f1f1;
+}
+
+* {
+  color: var(--text-main);
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+}
+
+.app {
+  background-color: var(--bg-main);
+  display: flex;
+}

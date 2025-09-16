@@ -1,0 +1,36 @@
+.chats {
+  max-width: 700px;
+  overflow-y: scroll;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  padding: 8rem;
+}
+
+.userDiv {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+}
+
+.userMessage {
+  background-color: var(--bg-user-msg);
+  padding: 10px 20px;
+  border-radius: 14px;
+  margin-left: 15rem;
+  max-width: 500px;
+  width: fit-content;
+  color: var(--text-main);
+}
+
+.gptDiv {
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.hljs {
+  border-radius: 14px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
