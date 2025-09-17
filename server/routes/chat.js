@@ -52,10 +52,6 @@ router.delete("/thread/:threadId", auth,  async (req, res) => {
 router.post("/chat", auth,  async (req, res) => {
     const { threadId, message } = req.body;
 
-    if (!threadId || !message) {
-        return res.status(400).json({ error: "missing required fields" });
-    }
-
     try {
         let thread = await Thread.findOne({ threadId });
 

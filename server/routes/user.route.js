@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import auth from "../middlewares/auth.middleware.js";
+import Thread from "../models/Thread.js";
 
 const router = Router();
 
@@ -65,6 +66,8 @@ router.delete("/delete", auth, async (req, res) => {
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found" });
     }
+
+    await Thread.deleteMany({ user: req.user.id });
 
     res.json({ message: "User deleted successfully" });
   } catch (error) {
